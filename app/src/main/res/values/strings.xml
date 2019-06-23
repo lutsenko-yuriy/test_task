@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">test_task</string>
+
+    <string name="non_actual_data_warning_title">Non-actual data</string>
+    <string name="non_actual_data_warning_description">The albums were loaded from the local storage and may differ
+        from the actual albums
+    </string>
+
+    <string name="error_title">Failed to load the data</string>
+    <string name="error_description">Please, try again later</string>
+
 </resources>

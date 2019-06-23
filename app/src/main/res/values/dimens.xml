@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="in_list_title">18sp</dimen>
+    <dimen name="warning_title_size">24sp</dimen>
+    <dimen name="text_padding">4dp</dimen>
+</resources>
