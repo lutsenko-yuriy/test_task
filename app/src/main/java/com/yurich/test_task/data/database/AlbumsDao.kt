@@ -12,12 +12,12 @@ abstract class AlbumsDao {
     @Insert(onConflict = REPLACE)
     abstract suspend fun putAlbums(albums: List<LocalStorageAlbum>)
 
-    @Delete
-    abstract suspend fun deleteAlbums(albums: List<LocalStorageAlbum>)
+    @Query("DELETE FROM albums")
+    abstract suspend fun deleteAlbums()
 
     @Transaction
     open suspend fun replaceAlbums(albums: List<LocalStorageAlbum>) {
-        deleteAlbums(getAlbums())
+        deleteAlbums()
         putAlbums(albums)
     }
 
