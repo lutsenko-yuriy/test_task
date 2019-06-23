@@ -6,6 +6,6 @@ interface AlbumsDaoDelegate {
 
     suspend fun getAlbums(): List<Album>
 
-    suspend fun refreshAlbums(albums: List<Album>): List<Album>
+    suspend fun refreshAlbums(albums: List<Album>)
 
 }

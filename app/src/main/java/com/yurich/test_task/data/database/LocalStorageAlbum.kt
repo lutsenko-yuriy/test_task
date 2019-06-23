@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "albums")
 data class LocalStorageAlbum(
     @PrimaryKey
-    val userId: Int,
     val id: Int,
+    val userId: Int,
     val title: String
 )

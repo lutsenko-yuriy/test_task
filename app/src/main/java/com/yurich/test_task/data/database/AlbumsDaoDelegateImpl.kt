@@ -10,9 +10,8 @@ class AlbumsDaoDelegateImpl(private val dao: AlbumsDao) : AlbumsDaoDelegate {
         dao.getAlbums().map { Album(it.userId, it.id, it.title) }
     }
 
-    override suspend fun refreshAlbums(albums: List<Album>): List<Album> = withContext(IO) {
-        dao.replaceAlbums(albums.map { LocalStorageAlbum(it.userId, it.id, it.title) })
-        albums
+    override suspend fun refreshAlbums(albums: List<Album>) = withContext(IO) {
+        dao.replaceAlbums(albums.map { LocalStorageAlbum(it.id, it.userId, it.title) })
     }
 
 }

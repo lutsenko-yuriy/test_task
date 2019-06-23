@@ -11,7 +11,7 @@ class AlbumsRepositoryImpl(
 ) : AlbumsRepository {
 
     override suspend fun refreshAlbumsData(): AlbumsDataState = withContext(Default) {
-        val albumsFromNetwork = getAlbumsFromNetwork()
+        val albumsFromNetwork = albumsFromNetwork()
         if (albumsFromNetwork.isNotEmpty()) {
             return@withContext AlbumsDataState.FromNetwork(albumsFromNetwork)
         }
@@ -24,7 +24,7 @@ class AlbumsRepositoryImpl(
         return@withContext AlbumsDataState.FromNowhere
     }
 
-    private suspend fun getAlbumsFromNetwork(): List<Album> {
+    private suspend fun albumsFromNetwork(): List<Album> {
         val albumsFromNetwork = serviceDelegate.getAlbums()
 
         if (albumsFromNetwork.isNotEmpty()) {
