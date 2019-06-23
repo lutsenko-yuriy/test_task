@@ -36,8 +36,10 @@ class MainActivity : AppCompatActivity() {
         albums_list.adapter = adapter
         albums_list.addItemDecoration(DividerItemDecoration(this@MainActivity, VERTICAL))
 
-        refresher.isRefreshing = true
-        viewModel.refreshAlbumsData()
+        if (savedInstanceState == null) {
+            refresher.isRefreshing = true
+            viewModel.refreshAlbumsData()
+        }
     }
 
     private fun processViewState(viewState: AlbumsViewState) {
