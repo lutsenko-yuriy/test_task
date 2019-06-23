@@ -1,7 +1,6 @@
 package com.yurich.test_task.data.network
 
 import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.doThrow
 import com.nhaarman.mockitokotlin2.stub
 import com.yurich.test_task.data.repository.Album
 import kotlinx.coroutines.runBlocking
