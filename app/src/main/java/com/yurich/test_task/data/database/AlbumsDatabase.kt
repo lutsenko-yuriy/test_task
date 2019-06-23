@@ -7,6 +7,7 @@ import androidx.room.RoomDatabase
 
 @Database(entities = [LocalStorageAlbum::class], version = 1)
 abstract class AlbumsDatabase : RoomDatabase() {
+
     abstract fun albumsDao(): AlbumsDao
 
     companion object {
@@ -27,4 +28,5 @@ abstract class AlbumsDatabase : RoomDatabase() {
         }
 
     }
+
 }
