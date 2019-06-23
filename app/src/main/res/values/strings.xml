@@ -8,5 +8,6 @@
 
     <string name="error_title">Failed to load the data</string>
     <string name="error_description">Please, try again later</string>
+    <string name="album_description" formatted="false">From user with id %s</string>
 
 </resources>
