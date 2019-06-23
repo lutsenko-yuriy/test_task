@@ -23,13 +23,7 @@ class MainActivityViewModel(private val albumsRepository: AlbumsRepository) : Vi
         postValue(AlbumsViewState.Loading)
     }
 
-    fun loadAlbumsData() = coroutineScope.launch {
-        albumsStateLiveData.postValue(AlbumsViewState.Loading)
-        albumsStateLiveData.postValue(processDataState(albumsRepository.loadAlbumsData()))
-    }
-
     fun refreshAlbumsData() = coroutineScope.launch {
-        albumsStateLiveData.postValue(AlbumsViewState.Loading)
         albumsStateLiveData.postValue(processDataState(albumsRepository.refreshAlbumsData()))
     }
 

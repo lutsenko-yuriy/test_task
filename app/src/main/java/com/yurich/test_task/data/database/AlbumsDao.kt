@@ -1,6 +1,7 @@
 package com.yurich.test_task.data.database
 
 import androidx.room.*
+import androidx.room.OnConflictStrategy.REPLACE
 
 @Dao
 abstract class AlbumsDao {
@@ -8,14 +9,14 @@ abstract class AlbumsDao {
     @Query("SELECT * FROM albums")
     abstract suspend fun getAlbums(): List<LocalStorageAlbum>
 
-    @Insert
+    @Insert(onConflict = REPLACE)
     abstract suspend fun putAlbums(albums: List<LocalStorageAlbum>)
 
-    @Delete
+    @Query("DELETE FROM albums")
     abstract suspend fun deleteAlbums()
 
     @Transaction
-    suspend fun replaceAlbums(albums: List<LocalStorageAlbum>) {
+    open suspend fun replaceAlbums(albums: List<LocalStorageAlbum>) {
         deleteAlbums()
         putAlbums(albums)
     }

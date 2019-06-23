@@ -7,7 +7,12 @@ import kotlinx.coroutines.withContext
 class AlbumsServiceDelegateImpl(private val service: AlbumsService) : AlbumsServiceDelegate {
 
     override suspend fun getAlbums(): List<Album> = withContext(IO) {
-        service.getAlbums().body()?.map { Album(it.userId, it.id, it.title) } ?: listOf()
+        return@withContext try {
+            service.getAlbums().body()?.map { Album(it.userId, it.id, it.title) } ?: listOf()
+        } catch (e: Exception) {
+            @Suppress("RemoveExplicitTypeArguments")
+            emptyList<Album>()
+        }
     }
 
 }

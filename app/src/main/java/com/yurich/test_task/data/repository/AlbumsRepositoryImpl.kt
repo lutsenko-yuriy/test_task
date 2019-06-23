@@ -10,20 +10,6 @@ class AlbumsRepositoryImpl(
     private val daoDelegate: AlbumsDaoDelegate
 ) : AlbumsRepository {
 
-    override suspend fun loadAlbumsData(): AlbumsDataState = withContext(Default) {
-        val albumsFromLocalStorage = albumsFromDatabase()
-        if (albumsFromLocalStorage.isNotEmpty()) {
-            return@withContext AlbumsDataState.FromDatabase(albumsFromLocalStorage)
-        }
-
-        val albumsFromNetwork = getAlbumsFromNetwork()
-        if (albumsFromNetwork.isNotEmpty()) {
-            return@withContext AlbumsDataState.FromNetwork(albumsFromNetwork)
-        }
-
-        return@withContext AlbumsDataState.FromNowhere
-    }
-
     override suspend fun refreshAlbumsData(): AlbumsDataState = withContext(Default) {
         val albumsFromNetwork = getAlbumsFromNetwork()
         if (albumsFromNetwork.isNotEmpty()) {
