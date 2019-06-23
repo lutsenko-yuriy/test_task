@@ -1,7 +1,8 @@
-package com.yurich.test_task
+package com.yurich.test_task.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.yurich.test_task.R
 
 class MainActivity : AppCompatActivity() {
 
