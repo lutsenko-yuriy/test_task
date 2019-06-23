@@ -52,7 +52,7 @@ class AlbumsAdapter : RecyclerView.Adapter<AlbumsAdapter.AlbumViewHolder>() {
 
         fun bind(album: Album) = with(itemView) {
             album_title.text = album.title
-            album_description.text = resources.getText(R.string.album_description, album.userId.toString())
+            album_description.text = resources.getString(R.string.album_description, album.userId)
         }
 
     }

@@ -19,9 +19,7 @@ class MainActivityViewModel(private val albumsRepository: AlbumsRepository) : Vi
         job.cancel()
     }
 
-    val albumsStateLiveData = MutableLiveData<AlbumsViewState>().apply {
-        postValue(AlbumsViewState.Loading)
-    }
+    val albumsStateLiveData = MutableLiveData<AlbumsViewState>()
 
     fun refreshAlbumsData() = coroutineScope.launch {
         albumsStateLiveData.postValue(processDataState(albumsRepository.refreshAlbumsData()))

@@ -8,8 +8,6 @@ sealed class AlbumsViewState {
 
     data class NonActualAlbums(val albums: List<Album>) : AlbumsViewState()
 
-    object Loading : AlbumsViewState()
-
     object Error : AlbumsViewState()
 
 }

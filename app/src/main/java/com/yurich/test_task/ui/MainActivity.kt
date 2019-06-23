@@ -32,12 +32,11 @@ class MainActivity : AppCompatActivity() {
             viewModel.refreshAlbumsData()
         }
 
-        albums_list.apply {
-            layoutManager = LinearLayoutManager(this@MainActivity)
-            adapter = adapter
-            addItemDecoration(DividerItemDecoration(this@MainActivity, VERTICAL))
-        }
+        albums_list.layoutManager = LinearLayoutManager(this@MainActivity)
+        albums_list.adapter = adapter
+        albums_list.addItemDecoration(DividerItemDecoration(this@MainActivity, VERTICAL))
 
+        refresher.isRefreshing = true
         viewModel.refreshAlbumsData()
     }
 
